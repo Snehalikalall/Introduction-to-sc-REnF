@@ -23,7 +23,7 @@ library(biomaRt)
 library('Linnorm')
 ```
 
-We will give the method demonstration with single cell RNA sequencing on 466 cells to capture the cellular complexity of the adult and fetal human brain at a whole transcriptome level. For more details about the study, see [A survey of human brain transcriptome diversity at the single cell level](https://www.pnas.org/content/112/23/7285#:~:text=Our%20results%20show%20that%20MHCI,as%20endothelial%20cells%20and%20microglia.)
+We will give the method demonstration with single cell RNA sequencing on 7895 cells to capture oligonucleotide-labeled antibodies which are used to integrate cellular protein and transcriptome measurements into an efficient, single-cell. For more details about the study, see [Simultaneous epitope and transcriptome measurement in single cells](https://www.nature.com/articles/nmeth.4380)
 
 For demonstration purposes, we gave here the preprocessed CBMC data and cell types. One can download the data from above link, and preprocess it using given code.
 Genes should be in row, Cells should be in coloumn
