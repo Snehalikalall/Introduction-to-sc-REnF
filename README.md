@@ -40,9 +40,9 @@ dim(preprocessedata)
 [1] 2000    7895
 
 preprocessedata[1:2,1:3]
-           TACAGTGTCTCGGACG GTTTCTACATCATCCC
-A4GALT        10.000000      -0.04300511
-ABCB10         4.615994      -0.12796529
+                Eryth            Eryth           NK
+A4GALT        10.000000      -0.04300511    -0.043005108
+ABCB10         4.615994      -0.12796529     2.161068254
 ```
 
 A total of 7895 cells and 2000 genes are remaining in the dataset after cell, gene filtering, and Normalization.
@@ -102,7 +102,7 @@ import libraries in python and importing the data
 import numpy as np
 import pandas as pd
 import scanpy as sc
-adata1=sc.read_csv('renyi03_darmanis.csv', delimiter=',', first_column_names=None, dtype='float32')
+adata1=sc.read_csv('Renyid.csv', delimiter=',', first_column_names=None, dtype='float32')
 ```
 
 Using PCA dimensionality reduction and Leiden clustering
