@@ -25,33 +25,27 @@ library('Linnorm')
 
 We will give the method demonstration with single cell RNA sequencing on 466 cells to capture the cellular complexity of the adult and fetal human brain at a whole transcriptome level. For more details about the study, see [A survey of human brain transcriptome diversity at the single cell level](https://www.pnas.org/content/112/23/7285#:~:text=Our%20results%20show%20that%20MHCI,as%20endothelial%20cells%20and%20microglia.)
 
-Read the gene expression data using (SingleCellExperiment object), calculate CPM values and extract metadata.
+For demonstration purposes, we gave here the preprocessed CBMC data and cell types. One can download the data from above link, and preprocess it using given code.
+Genes should be in row, Cells should be in coloumn
 
 
 ```
-rawdata <- readRDS("darmanis.rds")
-data <- assay(rawdata)
-```
-For demonstration purposes, we apply a standard *Linnorm* normalization with minimum read count =5 in 10 percent cell. However any other normalization approach may be used.
-Gene should be in row, Cells should be in coloumn
-
-
-```
-preprocessedata= normalized_data(data)
+preprocessedata= read.csv(rna_cbmc.csv)
+celltype=read.csv("cell_type_cbmc.csv",header = FALSE)
 
 ```
 
 ```
 dim(preprocessedata) 
-[1] 8994    465
+[1] 2000    7895
 
 preprocessedata[1:2,1:3]
-      Brain    Brain    Brain
-A2M  0.000000 4.953487 4.908761
-AAAS 1.526881 0.000000 0.000000
+           TACAGTGTCTCGGACG GTTTCTACATCATCCC
+A4GALT        10.000000      -0.04300511
+ABCB10         4.615994      -0.12796529
 ```
 
-A total of 465 cells and 8994 genes are remaining in the dataset after cell, gene filtering, and Normalization.
+A total of 7895 cells and 2000 genes are remaining in the dataset after cell, gene filtering, and Normalization.
 
 
 ## Feature (Gene Selection)
@@ -76,22 +70,22 @@ The  Reduced Darmanis data using Renyi entropy
 
 ```
 dim(RenyiFeadata)
-[1] 466  50
+[1] 7895  50
 RenyiFeadata[1:2,1:3]
-              BRD7P3 MEX3A TMSB15A
-astrocytes  2.749929     0       0
-endothelial 0.000000     0       0
+            PTN            PRIM1          PLA2G12A      
+Eryth "-0.102047271" " 1.738611217" " 2.505624603"
+Eryth "-0.102047271" " 1.214342009" " 1.556973317"
 ```
 
 The  Reduced Darmanis data using Tsallis entropy
 
 ```
 dim(TsallisFeadata)
-[1] 466  50
+[1] 7895  50
 TsallisFeadata[1:2,1:3]
-              PCP4     DDX5      A2M
-astrocytes     0 4.095699 0.000000
-endothelial    0 5.816251 4.955909
+            AC079354.1     CST3           NKG7          
+Eryth "-0.020573752" "-0.334792659" "-0.396311788"
+Eryth "-0.020573752" " 0.172185618" "-0.343284490"
 ```
 ## Saving the results
 
