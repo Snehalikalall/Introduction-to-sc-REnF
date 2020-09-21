@@ -111,7 +111,7 @@ Using PCA dimensionality reduction and Leiden clustering
 sc.tl.pca(adata1, svd_solver='arpack')
 sc.pl.pca_variance_ratio(adata1,n_pcs=20,log=True)
 ```
-<img src="./pca_darmanis.png">
+<img src="./download.png">
 
 
 ```
@@ -125,12 +125,12 @@ sc.tl.leiden(adata1)
 ##visualizing clusters
 sc.pl.umap(adata1, color=['leiden'])
 ```
-<img src="./cluster_darmanis.png">
+<img src="./download1.png">
 
 save the clustering results
 
 ```
-pd.DataFrame(adata1.obs).to_csv("darmanis_leiden.csv")
+pd.DataFrame(adata1.obs).to_csv("cbmc_leiden.csv")
 ```
 
 
@@ -143,7 +143,7 @@ sc.tl.rank_genes_groups(adata1, 'leiden', method='wilcoxon',key_added = "wilcoxo
 sc.pl.rank_genes_groups(adata1, n_genes=30, sharey=False,key="wilcoxon")
 ```
 
-<img src="./wilcox_darmanis.png">
+<img src="./download2.png">
 
 Top 10 DE genes for each cluster using Wilcox-Ranksum Test
 
@@ -161,40 +161,36 @@ Visualizing top 5 DE genes for each cluster in a heatmap using wilcox results
 ```
 sc.pl.rank_genes_groups_heatmap(adata1, n_genes=5, key="wilcoxon", groupby="leiden", show_gene_labels=True)
 ```
-<img src="./heat_darmanis.png">
+<img src="./download3.png">
 
 Visualizing top 5 DE genes for each cluster in a dotplot using t-test results. Here color of dot represents mean expression of the gene in those cell, dot size represents fraction of cells expressing a gene  
 
 ```
 sc.pl.rank_genes_groups_dotplot(adata1, n_genes=5, key="wilcoxon", groupby="leiden")
 ```
-<img src="./dotplot_darmanis.png">
+<img src="./download4.png">
 
 Visualizing top 5 DE genes for each cluster in a stacked violin plot using t-test results 
 
 ```
 sc.pl.rank_genes_groups_stacked_violin(adata1, n_genes=5, key="wilcoxon", groupby="leiden")
 ```
-<img src="./violin_darmanis.png">
+<img src="./download5.png">
 
 Visualizing top 5 DE genes for each cluster in a matrixplot using wilcox results. matrixplot represents mean expression of a gene in a cluster as a heatmap.
 
 ```
 sc.pl.rank_genes_groups_matrixplot(adata1, n_genes=5, key="wilcoxon", groupby="leiden")
 ```
-<img src="./heat2_darmanis.png">
+<img src="./download6.png">
 
-Showing expression of some marker genes (e.g VIP,DCX) across Leiden groups
-
-```
-sc.pl.violin(adata1, ['VIP'], groupby='leiden')
-```
-<img src="./VIP_darmanis.png">
+Showing expression of one marker genes (e.g GZMA) across Leiden groups
 
 ```
-sc.pl.violin(adata1, ['DCX'], groupby='leiden')
+sc.pl.violin(adata1, ['GZMA'], groupby='leiden')
 ```
-<img src="./dcx_darmanis.png">
+<img src="./download7.png">
+
 
 
 
