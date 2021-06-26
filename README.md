@@ -61,8 +61,8 @@ library('Rfast')
 Apply the feature (gene) selection using Renyi and Tsallis with preprocesse data and cell types. Default--- Core Number (p=20), q-values (q=0.7,0.3) , Number of genes to be selected (nf=50) 
 
 ```
-RenyiFeadata=Renyifeaturedata(data,cell,p,q,nf)
-TsallisFeadata=Tsallisfeaturedata(data,cell,p,q,nf)
+RenyiFeadata=Renyifeature(data,cell,p,q,nf)
+TsallisFeadata=Tsallisfeature(data,cell,p,q,nf)
 
 ```
 
