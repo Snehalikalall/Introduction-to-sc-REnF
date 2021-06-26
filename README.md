@@ -26,24 +26,24 @@ library('Linnorm')
 We will give the method demonstration with single cell RNA sequencing on 7895 cells to capture oligonucleotide-labeled antibodies which are used to integrate cellular protein and transcriptome measurements into an efficient, single-cell. For more details about the study, see [Simultaneous epitope and transcriptome measurement in single cells](https://www.nature.com/articles/nmeth.4380)
 
 For demonstration purposes, we gave here the preprocessed CBMC data and cell types. One can download the data from above link, and preprocess it using given code.
-Genes should be in row, Cells should be in coloumn
+For preprocessing, Genes should be in row, Cells should be in coloumn
 
 
 ```
-preprocessedata= read.csv(rna_cbmc.csv)
-celltype=read.csv("cell_type_cbmc.csv",header = FALSE)
+data= read.csv("cbmcdata.csv",header=FALSE)
+cell=read.csv("cbmcannot.csv",header = FALSE)
 
 ```
 
 ```
 dim(preprocessedata) 
-[1] 2000    7895
+[1] 7895    2000
 
 preprocessedata[1:2,1:3]
-                Eryth            Eryth           NK
-A4GALT        10.000000      -0.04300511    -0.043005108
-ABCB10         4.615994      -0.12796529     2.161068254
-```
+                V1            V2           V3
+1              10.00000000  4.6159939 -0.08952736
+2              -0.04300511 -0.1279653 -0.08952736
+
 
 A total of 7895 cells and 2000 genes are remaining in the dataset after cell, gene filtering, and Normalization.
 
@@ -58,7 +58,7 @@ library(foreach)
 library(doParallel)
 library('Rfast')
 ```
-Apply the feature (gene) selection using Renyi and Tsallis with preprocesse data and cell types. Default--- Core Number (p=20), q-values (q=0.7,0.3) , Number of genes to be selected (nf=50) 
+Apply the feature (gene) selection using Renyi and Tsallis with preprocesse data and cell types. Default--- Core Number (p=20), q-values (q=0.7,0.3) , Number of genes to be selected (nf=50). For Gene selection, Cells should be in row and genes should be in coloumn. Header should be null.
 
 ```
 RenyiFeadata=Renyifeature(data,cell,p,q,nf)
