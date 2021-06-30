@@ -47,7 +47,7 @@ preprocessedata[1:2,1:3]
                 V1            V2           V3
 1              10.00000000  4.6159939 -0.08952736
 2              -0.04300511 -0.1279653 -0.08952736
-
+```
 
 A total of 7895 cells and 2000 genes are remaining in the dataset after cell, gene filtering, and Normalization.
 
