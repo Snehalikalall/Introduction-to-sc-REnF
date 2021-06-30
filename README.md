@@ -43,7 +43,7 @@ cell=read.csv("cbmcannot.csv",header = FALSE)
 dim(data) 
 [1] 7895    2000
 
-preprocessedata[1:2,1:3]
+data[1:2,1:3]
                 V1            V2           V3
 1              10.00000000  4.6159939 -0.08952736
 2              -0.04300511 -0.1279653 -0.08952736
@@ -61,7 +61,7 @@ library('MASS')
 library(foreach)
 library(doParallel)
 library('Rfast')
-library('screnf')
+library('scREnF')
 ```
 Apply the feature (gene) selection using Renyi and Tsallis with preprocesse data and cell types. Default--- Core Number (p=20), q-values (q=0.7,0.3) , Number of genes to be selected (nf=50). For Gene selection, Cells should be in row and genes should be in coloumn. Header should be null.
 
