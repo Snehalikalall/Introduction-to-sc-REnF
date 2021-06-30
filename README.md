@@ -18,14 +18,18 @@ Load the Libraries
 ```
 library(SingleCellExperiment)
 library(edgeR)
-library(scDatasets)
-library(biomaRt)
 library('Linnorm')
+
+#normalized_data function is in preprocessing.R function
+annotation <- Biase_data[[2]] #already factor type class
+colnames(data) <- as.matrix(annotation)
+PreprocessedData = normalized_data(data)
+
 ```
 
 We will give the method demonstration with single cell RNA sequencing on 7895 cells to capture oligonucleotide-labeled antibodies which are used to integrate cellular protein and transcriptome measurements into an efficient, single-cell. For more details about the study, see [Simultaneous epitope and transcriptome measurement in single cells](https://www.nature.com/articles/nmeth.4380)
 
-For demonstration purposes, we gave here the preprocessed CBMC data and cell types. One can download the data from above link, and preprocess it using given code.
+For demonstration purposes, we gave here the preprocessed CBMC data and cell types. One can download the other datasets from above link, and preprocess it using given code.
 For preprocessing, Genes should be in row, Cells should be in coloumn
 
 
@@ -36,7 +40,7 @@ cell=read.csv("cbmcannot.csv",header = FALSE)
 ```
 
 ```
-dim(preprocessedata) 
+dim(data) 
 [1] 7895    2000
 
 preprocessedata[1:2,1:3]
@@ -57,13 +61,13 @@ library('MASS')
 library(foreach)
 library(doParallel)
 library('Rfast')
+library('screnf')
 ```
 Apply the feature (gene) selection using Renyi and Tsallis with preprocesse data and cell types. Default--- Core Number (p=20), q-values (q=0.7,0.3) , Number of genes to be selected (nf=50). For Gene selection, Cells should be in row and genes should be in coloumn. Header should be null.
 
 ```
 RenyiFeadata=Renyifeature(data,cell,p,q,nf)
 TsallisFeadata=Tsallisfeature(data,cell,p,q,nf)
-
 ```
 
 The  Reduced Darmanis data using Renyi entropy
