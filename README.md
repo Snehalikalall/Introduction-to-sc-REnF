@@ -33,8 +33,9 @@ For preprocessing, Genes should be in row, Cells should be in coloumn
 
 
 ```
-data= read.csv("cbmcdata.csv",header=FALSE)
-cell=read.csv("cbmcannot.csv",header = FALSE)
+data= as.matrix(read.csv("cbmcdata.csv",header=FALSE))
+cell=as.matrix(read.csv("cbmcannot.csv",header = FALSE))
+gene=as.matrix(read.csv("cbmc_gene.csv",header=FALSE))
 
 ```
 
@@ -60,7 +61,7 @@ library(foreach)
 library(doParallel)
 library('scREnF')
 ```
-Apply the feature (gene) selection using Renyi and Tsallis with preprocesse data and cell types. Default--- Core Number (p=40), q-values (q=0.7,0.3) , Number of genes to be selected (nf=50). For Gene selection, Cells should be in row and genes should be in coloumn. Header should be null.
+Apply the feature (gene) selection using Renyi and Tsallis with preprocesse data and cell types. Default--- Core Number (p=40), q-values (q=0.7,0.3) , Number of genes to be selected (nf=500). For Gene selection, Cells should be in row and genes should be in coloumn. Header should be null.
 
 ```
 RenyiFeadata=Renyifeature(data,cell,p,q,nf)
@@ -71,7 +72,7 @@ The  Reduced Darmanis data using Renyi entropy
 
 ```
 dim(RenyiFeadata)
-[1] 7895  50
+[1] 7895  500
 RenyiFeadata[1:2,1:3]
             PTN            PRIM1          PLA2G12A      
 Eryth "-0.102047271" " 1.738611217" " 2.505624603"
@@ -82,7 +83,7 @@ The  Reduced CBMC data using Tsallis entropy
 
 ```
 dim(TsallisFeadata)
-[1] 7895  50
+[1] 7895  500
 TsallisFeadata[1:2,1:3]
             AC079354.1     CST3           NKG7          
 Eryth "-0.020573752" "-0.334792659" "-0.396311788"
