@@ -17,10 +17,9 @@ Load the Libraries
 
 ```
 library(SingleCellExperiment)
-library(edgeR)
 library('Linnorm')
 
-#normalized_data function is in preprocessing.R function
+#normalized_data function is in DataProcessing.R function
 annotation <- Biase_data[[2]] #already factor type class
 colnames(data) <- as.matrix(annotation)
 PreprocessedData = normalized_data(data)
@@ -57,13 +56,11 @@ A total of 7895 cells and 2000 genes are remaining in the dataset after cell, ge
 Load the libraries
 
 ```
-library('MASS')
 library(foreach)
 library(doParallel)
-library('Rfast')
 library('scREnF')
 ```
-Apply the feature (gene) selection using Renyi and Tsallis with preprocesse data and cell types. Default--- Core Number (p=20), q-values (q=0.7,0.3) , Number of genes to be selected (nf=50). For Gene selection, Cells should be in row and genes should be in coloumn. Header should be null.
+Apply the feature (gene) selection using Renyi and Tsallis with preprocesse data and cell types. Default--- Core Number (p=40), q-values (q=0.7,0.3) , Number of genes to be selected (nf=50). For Gene selection, Cells should be in row and genes should be in coloumn. Header should be null.
 
 ```
 RenyiFeadata=Renyifeature(data,cell,p,q,nf)
@@ -81,7 +78,7 @@ Eryth "-0.102047271" " 1.738611217" " 2.505624603"
 Eryth "-0.102047271" " 1.214342009" " 1.556973317"
 ```
 
-The  Reduced Darmanis data using Tsallis entropy
+The  Reduced CBMC data using Tsallis entropy
 
 ```
 dim(TsallisFeadata)
