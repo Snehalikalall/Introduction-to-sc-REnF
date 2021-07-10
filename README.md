@@ -64,11 +64,11 @@ library('scREnF')
 Apply the feature (gene) selection using Renyi and Tsallis with preprocesse data and cell types. Default--- Core Number (p=40), q-values (q=0.7,0.3) , Number of genes to be selected (nf=500). For Gene selection, Cells should be in row and genes should be in coloumn. Header should be null.
 
 ```
-RenyiFeadata=Renyifeature(data,cell,p,q,nf)
-TsallisFeadata=Tsallisfeature(data,cell,p,q,nf)
+RenyiFeadata=Renyifeature(data,cell,gene,p,q,nf)
+TsallisFeadata=Tsallisfeature(data,cell,gene,p,q,nf)
 ```
 
-The  Reduced Darmanis data using Renyi entropy
+The  Reduced CBMC data using Renyi entropy
 
 ```
 dim(RenyiFeadata)
@@ -156,7 +156,7 @@ groups = result['names'].dtype.names
 p=pd.DataFrame(
     {group + '_' + key[:1]: result[key][group]
     for group in groups for key in ['names', 'pvals']}).head(10)
-pd.DataFrame(p).to_csv("darmanis_marker.csv")
+pd.DataFrame(p).to_csv("cbmc_marker.csv")
 ```
 Visualizing top 5 DE genes for each cluster in a heatmap using wilcox results
 
