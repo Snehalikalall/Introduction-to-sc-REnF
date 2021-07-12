@@ -118,7 +118,7 @@ sc.pl.pca_variance_ratio(adata1,n_pcs=20,log=True)
 
 ```
 #create neighborhood graph using 10 pcs 
-sc.pp.neighbors(adata1, n_neighbors=15, n_pcs=30)
+sc.pp.neighbors(adata1, n_neighbors=15, n_pcs=10)
 ##dim reduction using umap
 sc.tl.umap(adata1)
 #Leiden clustering
