@@ -168,21 +168,21 @@ sc.pl.rank_genes_groups_heatmap(adata1, n_genes=5, key="wilcoxon", groupby="leid
 Visualizing top 3 DE genes for each cluster in a dotplot using t-test results. Here color of dot represents mean expression of the gene in those cell, dot size represents fraction of cells expressing a gene  
 
 ```
-sc.pl.rank_genes_groups_dotplot(adata1, n_genes=5, key="wilcoxon", groupby="leiden")
+sc.pl.rank_genes_groups_dotplot(adata1, n_genes=3, key="wilcoxon", groupby="leiden")
 ```
 <img src="./download4.png">
 
 Visualizing top 3 DE genes for each cluster in a stacked violin plot using t-test results 
 
 ```
-sc.pl.rank_genes_groups_stacked_violin(adata1, n_genes=5, key="wilcoxon", groupby="leiden")
+sc.pl.rank_genes_groups_stacked_violin(adata1, n_genes=3, key="wilcoxon", groupby="leiden")
 ```
 <img src="./download5.png">
 
 Visualizing top 3 DE genes for each cluster in a matrixplot using wilcox results. matrixplot represents mean expression of a gene in a cluster as a heatmap.
 
 ```
-sc.pl.rank_genes_groups_matrixplot(adata1, n_genes=5, key="wilcoxon", groupby="leiden")
+sc.pl.rank_genes_groups_matrixplot(adata1, n_genes=3, key="wilcoxon", groupby="leiden")
 ```
 <img src="./download6.png">
 
