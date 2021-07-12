@@ -26,7 +26,7 @@ PreprocessedData = normalized_data(data)
 
 ```
 
-We will give the method demonstration with single cell RNA sequencing on 7895 cells to capture oligonucleotide-labeled antibodies which are used to integrate cellular protein and transcriptome measurements into an efficient, single-cell. For more details about the study, see [Simultaneous epitope and transcriptome measurement in single cells](https://www.nature.com/articles/nmeth.4380)
+We will give the method demonstration on CBMC data. For more details about the data, see [Simultaneous epitope and transcriptome measurement in single cells](https://www.nature.com/articles/nmeth.4380)
 
 For demonstration purposes, we gave here the preprocessed CBMC data and cell types. One can download the other datasets from above link, and preprocess it using given code.
 For preprocessing, Genes should be in row, Cells should be in coloumn
