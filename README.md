@@ -158,28 +158,28 @@ p=pd.DataFrame(
     for group in groups for key in ['names', 'pvals']}).head(10)
 pd.DataFrame(p).to_csv("cbmc_marker.csv")
 ```
-Visualizing top 5 DE genes for each cluster in a heatmap using wilcox results
+Visualizing top 3 DE genes for each cluster in a heatmap using wilcox results
 
 ```
 sc.pl.rank_genes_groups_heatmap(adata1, n_genes=5, key="wilcoxon", groupby="leiden", show_gene_labels=True)
 ```
 <img src="./download3.png">
 
-Visualizing top 5 DE genes for each cluster in a dotplot using t-test results. Here color of dot represents mean expression of the gene in those cell, dot size represents fraction of cells expressing a gene  
+Visualizing top 3 DE genes for each cluster in a dotplot using t-test results. Here color of dot represents mean expression of the gene in those cell, dot size represents fraction of cells expressing a gene  
 
 ```
 sc.pl.rank_genes_groups_dotplot(adata1, n_genes=5, key="wilcoxon", groupby="leiden")
 ```
 <img src="./download4.png">
 
-Visualizing top 5 DE genes for each cluster in a stacked violin plot using t-test results 
+Visualizing top 3 DE genes for each cluster in a stacked violin plot using t-test results 
 
 ```
 sc.pl.rank_genes_groups_stacked_violin(adata1, n_genes=5, key="wilcoxon", groupby="leiden")
 ```
 <img src="./download5.png">
 
-Visualizing top 5 DE genes for each cluster in a matrixplot using wilcox results. matrixplot represents mean expression of a gene in a cluster as a heatmap.
+Visualizing top 3 DE genes for each cluster in a matrixplot using wilcox results. matrixplot represents mean expression of a gene in a cluster as a heatmap.
 
 ```
 sc.pl.rank_genes_groups_matrixplot(adata1, n_genes=5, key="wilcoxon", groupby="leiden")
